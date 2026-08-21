@@ -38,11 +38,26 @@
             box-shadow: 0 5px 20px #ddd;
         }
 
-        .map-image {
+        .map-slider {
+            position: relative;
             width: 100%;
-            max-height: 450px;
-            object-fit: cover;
+            height: 500px;
+            overflow: hidden;
             border-radius: 15px;
+        }
+
+        .map-slider img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .map-slider img.active {
+            opacity: 1;
         }
 
         h1 {
@@ -95,18 +110,19 @@
 
         <div class="map">
 
-            <!-- عکس مپ -->
-            <img
-                class="map-image"
-                src="survival-map.jpg"
-                alt="Survival Map"
-            >
+            <!-- عکس‌های بزرگ مپ: هر ۵ ثانیه تغییر می‌کنند -->
+            <div class="map-slider">
+                <img src="b1.webp" alt="Backrooms Map 1" class="active">
+                <img src="b2.webp" alt="Backrooms Map 2">
+                <img src="b3.webp" alt="Backrooms Map 3">
+                <img src="b4.webp" alt="Backrooms Map 4">
+            </div>
 
-            <h2>🏠 Survival Map</h2>
+            <h2>🏠 bakrooms Map</h2>
 
             <p>
-                یک مپ سروایول ساخته‌شده برای Minecraft
-                با خانه، مجسمه و سازه‌های مختلف.
+               یک مپ ترسناک بکرومز  Minecraft
+                .
             </p>
 
             <div class="info">
@@ -147,6 +163,17 @@
         </div>
 
     </div>
+
+    <script>
+        const mapImages = document.querySelectorAll(".map-slider img");
+        let currentImage = 0;
+
+        setInterval(() => {
+            mapImages[currentImage].classList.remove("active");
+            currentImage = (currentImage + 1) % mapImages.length;
+            mapImages[currentImage].classList.add("active");
+        }, 5000);
+    </script>
 
 </body>
 </html>
