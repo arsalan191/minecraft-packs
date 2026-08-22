@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Minecraft Packs</title>
-<meta name="description" content="Minecraft Packs - دانلود و مشاهده پک‌های Minecraft، تکسچر پک و Resource Pack.">
+
+    <meta name="description" content="Minecraft Packs - دانلود و مشاهده پک‌های Minecraft، تکسچر پک و Resource Pack.">
+
     <style>
         body {
             background: #111;
             color: white;
             text-align: center;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             padding-top: 100px;
+            margin: 0;
         }
 
         h1 {
@@ -21,12 +26,24 @@
             font-size: 22px;
         }
 
-        button {
-            padding: 15px 30px;
+        .start-btn {
+            display: inline-block;
+            background: #e91e3f;
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
             font-size: 20px;
+            font-weight: bold;
             border: none;
             border-radius: 10px;
             cursor: pointer;
+            margin-top: 20px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .start-btn:hover {
+            background: #c91532;
         }
     </style>
 </head>
@@ -34,9 +51,10 @@
 <body>
 
     <h1>به Minecraft Packs خوش آمدید! 🎮</h1>
+
     <p>بهترین پک‌های ماینکرفت اینجا هستند!</p>
 
-    <a href="packs.html">شروع</a>
+    <a href="packs.html" class="start-btn">شروع</a>
 
 </body>
 </html>
