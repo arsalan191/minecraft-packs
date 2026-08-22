@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -222,6 +223,14 @@
         .reelz-id {
             direction: ltr;
             display: block;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .reelz-id:hover {
+            text-decoration: underline;
         }
 
         /* موبایل */
@@ -388,11 +397,21 @@
     <!-- چنل Reelz -->
     <div class="reelz-channel">
         🎬 چنل Reelz
-        <span class="reelz-id">@minecraftpacks</span>
+
+        <a
+            href="https://reelz.social/@minecraftpacks"
+            class="reelz-id"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            @minecraftpacks
+        </a>
     </div>
 
 
     <script>
+
+        /* تغییر عکس‌های بکرومز هر ۵ ثانیه */
 
         const images =
             document.querySelectorAll(".map-slider img");
@@ -415,6 +434,8 @@
 
         }, 5000);
 
+
+        /* سرچ و دسته‌بندی */
 
         const searchInput =
             document.getElementById("searchInput");
@@ -473,23 +494,23 @@
 
 
             if (visibleCount === 0) {
-
                 noResults.style.display = "block";
-
             } else {
-
                 noResults.style.display = "none";
-
             }
 
         }
 
+
+        /* کار کردن سرچ */
 
         searchInput.addEventListener(
             "input",
             filterCards
         );
 
+
+        /* کار کردن دسته‌بندی‌ها */
 
         categoryButtons.forEach(button => {
 
@@ -515,3 +536,4 @@
 
 </body>
 </html>
+```
