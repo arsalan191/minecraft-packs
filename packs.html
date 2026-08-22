@@ -92,7 +92,7 @@
             color: white;
         }
 
-        /* لیست کارت‌ها */
+        /* کارت‌ها */
         .packs-container {
             display: flex;
             justify-content: center;
@@ -107,7 +107,7 @@
             display: block;
         }
 
-        /* کارت */
+        /* کارت مپ */
         .pack-card {
             width: 280px;
             background: white;
@@ -125,7 +125,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* اسلاید عکس */
+        /* اسلاید عکس‌های مپ */
         .map-slider {
             position: relative;
             width: 100%;
@@ -194,6 +194,7 @@
             cursor: pointer;
         }
 
+        /* پیام پیدا نشد */
         .no-results {
             display: none;
             color: #777;
@@ -201,6 +202,7 @@
             margin-top: 30px;
         }
 
+        /* موبایل */
         @media (max-width: 600px) {
 
             body {
@@ -254,7 +256,7 @@
         >
 
 
-        <!-- دسته‌بندی -->
+        <!-- دسته‌بندی‌ها -->
         <div class="categories">
 
             <button class="category-btn active" data-category="all">
@@ -276,8 +278,8 @@
         </div>
 
 
-        <!-- کارت‌ها -->
-        <div class="packs-container" id="packsContainer">
+        <!-- لیست کارت‌ها -->
+        <div class="packs-container">
 
 
             <!-- مپ Backrooms -->
@@ -290,19 +292,35 @@
 
                 <div class="pack-card">
 
+
+                    <!-- عکس‌های مپ -->
                     <div class="map-slider">
 
-                        <img src="b1.webp" alt="مپ بکرومز 1" class="active">
+                        <img
+                            src="b1.webp"
+                            alt="مپ بکرومز 1"
+                            class="active"
+                        >
 
-                        <img src="b2.webp" alt="مپ بکرومز 2">
+                        <img
+                            src="b2.webp"
+                            alt="مپ بکرومز 2"
+                        >
 
-                        <img src="b3.webp" alt="مپ بکرومز 3">
+                        <img
+                            src="b3.webp"
+                            alt="مپ بکرومز 3"
+                        >
 
-                        <img src="b4.webp" alt="مپ بکرومز 4">
+                        <img
+                            src="b4.webp"
+                            alt="مپ بکرومز 4"
+                        >
 
                     </div>
 
 
+                    <!-- اطلاعات مپ -->
                     <div class="pack-info">
 
                         <div class="type">
@@ -332,87 +350,10 @@
             </a>
 
 
-            <!-- نمونه ریسورس پک -->
-            <a
-                href="#"
-                class="pack-link"
-                data-category="resource"
-                data-name="ریسورس پک resource pack"
-            >
-
-                <div class="pack-card">
-
-                    <div class="map-slider">
-                        <img src="moz.jpg" alt="ریسورس پک" class="active">
-                    </div>
-
-                    <div class="pack-info">
-
-                        <div class="type">
-                            🎨 ریسورس پک
-                        </div>
-
-                        <h2>
-                            ریسورس پک
-                        </h2>
-
-                        <p class="description">
-                            به زودی اضافه می‌شود.
-                        </p>
-
-                        <button type="button">
-                            مشاهده
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- نمونه بسته -->
-            <a
-                href="#"
-                class="pack-link"
-                data-category="pack"
-                data-name="بسته پک minecraft"
-            >
-
-                <div class="pack-card">
-
-                    <div class="map-slider">
-                        <img src="moz.jpg" alt="بسته ماینکرفت" class="active">
-                    </div>
-
-                    <div class="pack-info">
-
-                        <div class="type">
-                            📦 بسته
-                        </div>
-
-                        <h2>
-                            بسته ماینکرفت
-                        </h2>
-
-                        <p class="description">
-                            به زودی اضافه می‌شود.
-                        </p>
-
-                        <button type="button">
-                            مشاهده
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
         </div>
 
 
+        <!-- پیام چیزی پیدا نشد -->
         <p id="noResults" class="no-results">
             چیزی پیدا نشد 😕
         </p>
@@ -423,27 +364,33 @@
 
     <script>
 
-        /* اسلاید تصاویر بکرومز */
+        /* تغییر عکس‌های بکرومز هر ۵ ثانیه */
 
-        const images = document.querySelectorAll(".map-slider img");
+        const images =
+            document.querySelectorAll(".map-slider img");
 
         let currentImage = 0;
 
+
         setInterval(() => {
 
-            if (images.length > 1) {
+            images[currentImage]
+                .classList.remove("active");
 
-                images[currentImage].classList.remove("active");
 
-                currentImage++;
+            currentImage++;
 
-                if (currentImage >= images.length) {
-                    currentImage = 0;
-                }
 
-                images[currentImage].classList.add("active");
+            if (currentImage >= images.length) {
+
+                currentImage = 0;
 
             }
+
+
+            images[currentImage]
+                .classList.add("active");
+
 
         }, 5000);
 
@@ -454,11 +401,14 @@
         const searchInput =
             document.getElementById("searchInput");
 
+
         const cards =
             document.querySelectorAll(".pack-link");
 
+
         const categoryButtons =
             document.querySelectorAll(".category-btn");
+
 
         const noResults =
             document.getElementById("noResults");
@@ -472,6 +422,7 @@
             const searchText =
                 searchInput.value.toLowerCase().trim();
 
+
             let visibleCount = 0;
 
 
@@ -479,6 +430,7 @@
 
                 const category =
                     card.dataset.category;
+
 
                 const name =
                     card.dataset.name.toLowerCase();
@@ -493,7 +445,10 @@
                     category === selectedCategory;
 
 
-                if (matchesSearch && matchesCategory) {
+                if (
+                    matchesSearch &&
+                    matchesCategory
+                ) {
 
                     card.style.display = "block";
 
@@ -521,18 +476,25 @@
         }
 
 
+        /* کار کردن سرچ */
+
         searchInput.addEventListener(
             "input",
             filterCards
         );
 
 
+        /* کار کردن دسته‌بندی‌ها */
+
         categoryButtons.forEach(button => {
 
             button.addEventListener("click", () => {
 
+
                 categoryButtons.forEach(btn => {
+
                     btn.classList.remove("active");
+
                 });
 
 
@@ -545,9 +507,11 @@
 
                 filterCards();
 
+
             });
 
         });
+
 
     </script>
 
