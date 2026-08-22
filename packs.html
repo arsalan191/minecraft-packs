@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -21,7 +20,6 @@
             font-family: Tahoma, Arial, sans-serif;
         }
 
-        /* عکس بالای صفحه */
         .top-image {
             position: fixed;
             top: 0;
@@ -44,7 +42,6 @@
             color: #16a34a;
         }
 
-        /* سرچ */
         .search-box {
             width: 100%;
             max-width: 500px;
@@ -62,7 +59,6 @@
             box-shadow: 0 0 10px rgba(22, 163, 74, 0.3);
         }
 
-        /* دسته‌بندی‌ها */
         .categories {
             display: flex;
             justify-content: center;
@@ -83,17 +79,12 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
-        .category-btn:hover {
-            background: #16a34a;
-            color: white;
-        }
-
+        .category-btn:hover,
         .category-btn.active {
             background: #16a34a;
             color: white;
         }
 
-        /* کارت‌ها */
         .packs-container {
             display: flex;
             justify-content: center;
@@ -101,14 +92,12 @@
             flex-wrap: wrap;
         }
 
-        /* لینک کارت */
         .pack-link {
             text-decoration: none;
             color: inherit;
             display: block;
         }
 
-        /* کارت مپ */
         .pack-card {
             width: 280px;
             background: white;
@@ -126,7 +115,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* اسلاید عکس‌های مپ */
+        /* اسلایدر عکس‌ها */
         .map-slider {
             position: relative;
             width: 100%;
@@ -195,7 +184,6 @@
             cursor: pointer;
         }
 
-        /* پیام پیدا نشد */
         .no-results {
             display: none;
             color: #777;
@@ -203,7 +191,6 @@
             margin-top: 30px;
         }
 
-        /* چنل Reelz پایین سمت راست */
         .reelz-channel {
             position: fixed;
             bottom: 15px;
@@ -226,14 +213,12 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            cursor: pointer;
         }
 
         .reelz-id:hover {
             text-decoration: underline;
         }
 
-        /* موبایل */
         @media (max-width: 600px) {
 
             body {
@@ -265,27 +250,18 @@
     </style>
 </head>
 
-
 <body>
 
-    <!-- عکس بالای سایت -->
     <img class="top-image" src="moz.jpg" alt="Minecraft Packs">
-
 
     <div class="content">
 
         <h1>🎮 Minecraft Packs</h1>
 
-        <p>
-            به Minecraft Packs خوش آمدید!
-        </p>
+        <p>به Minecraft Packs خوش آمدید!</p>
 
-        <p>
-            مپ، ریسورس پک و بسته مورد نظر خود را پیدا کنید.
-        </p>
+        <p>مپ، ریسورس پک و بسته مورد نظر خود را پیدا کنید.</p>
 
-
-        <!-- سرچ -->
         <input
             type="text"
             id="searchInput"
@@ -293,8 +269,6 @@
             placeholder="🔍 جستجو کنید..."
         >
 
-
-        <!-- دسته‌بندی‌ها -->
         <div class="categories">
 
             <button class="category-btn active" data-category="all">
@@ -315,8 +289,6 @@
 
         </div>
 
-
-        <!-- لیست کارت‌ها -->
         <div class="packs-container">
 
             <!-- مپ Backrooms -->
@@ -331,39 +303,18 @@
 
                     <div class="map-slider">
 
-                        <img
-                            src="b1.webp"
-                            alt="مپ بکرومز 1"
-                            class="active"
-                        >
-
-                        <img
-                            src="b2.webp"
-                            alt="مپ بکرومز 2"
-                        >
-
-                        <img
-                            src="b3.webp"
-                            alt="مپ بکرومز 3"
-                        >
-
-                        <img
-                            src="b4.webp"
-                            alt="مپ بکرومز 4"
-                        >
+                        <img src="b1.webp" alt="مپ بکرومز 1" class="active">
+                        <img src="b2.webp" alt="مپ بکرومز 2">
+                        <img src="b3.webp" alt="مپ بکرومز 3">
+                        <img src="b4.webp" alt="مپ بکرومز 4">
 
                     </div>
 
-
                     <div class="pack-info">
 
-                        <div class="type">
-                            🗺️ مپ
-                        </div>
+                        <div class="type">🗺️ مپ</div>
 
-                        <h2>
-                            مپ ترسناک بکرومز
-                        </h2>
+                        <h2>مپ ترسناک بکرومز</h2>
 
                         <p class="description">
                             وارد دنیای ترسناک و مرموز Backrooms شوید!
@@ -383,19 +334,71 @@
 
             </a>
 
+
+            <!-- ریسورس پک سروایوال -->
+            <a
+                href="survival resource pack.html"
+                class="pack-link"
+                data-category="resource"
+                data-name="ریسورس پک سروایوال survival resource pack minecraft"
+            >
+
+                <div class="pack-card">
+
+                    <!-- این دو عکس هر ۵ ثانیه عوض می‌شوند -->
+                    <div class="map-slider">
+
+                        <img
+                            src="survival.webp"
+                            alt="ریسورس پک سروایوال 1"
+                            class="active"
+                        >
+
+                        <img
+                            src="survival2.webp"
+                            alt="ریسورس پک سروایوال 2"
+                        >
+
+                    </div>
+
+                    <div class="pack-info">
+
+                        <div class="type">
+                            🎨 ریسورس پک
+                        </div>
+
+                        <h2>
+                            ریسورس پک سروایوال
+                        </h2>
+
+                        <p class="description">
+                            یک ریسورس پک جذاب برای زیباتر و بهتر شدن دنیای سروایوال ماینکرفت!
+                        </p>
+
+                        <div class="price">
+                            رایگان
+                        </div>
+
+                        <button type="button">
+                            مشاهده ریسورس پک
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </a>
+
         </div>
 
-
-        <!-- پیام چیزی پیدا نشد -->
         <p id="noResults" class="no-results">
             چیزی پیدا نشد 😕
         </p>
 
     </div>
 
-
-    <!-- چنل Reelz -->
     <div class="reelz-channel">
+
         🎬 چنل Reelz
 
         <a
@@ -406,33 +409,45 @@
         >
             @minecraftpacks
         </a>
-    </div>
 
+    </div>
 
     <script>
 
-        /* تغییر عکس‌های بکرومز هر ۵ ثانیه */
+        /* اسلایدر تمام کارت‌ها - هر ۵ ثانیه */
 
-        const images =
-            document.querySelectorAll(".map-slider img");
+        const sliders =
+            document.querySelectorAll(".map-slider");
 
-        let currentImage = 0;
 
-        setInterval(() => {
+        sliders.forEach(slider => {
 
-            images[currentImage]
-                .classList.remove("active");
+            const images =
+                slider.querySelectorAll("img");
 
-            currentImage++;
+            // اگر فقط یک عکس داشت، اسلایدر لازم نیست
+            if (images.length <= 1) return;
 
-            if (currentImage >= images.length) {
-                currentImage = 0;
-            }
+            let currentImage = 0;
 
-            images[currentImage]
-                .classList.add("active");
 
-        }, 5000);
+            setInterval(() => {
+
+                images[currentImage]
+                    .classList.remove("active");
+
+                currentImage++;
+
+                if (currentImage >= images.length) {
+                    currentImage = 0;
+                }
+
+                images[currentImage]
+                    .classList.add("active");
+
+            }, 5000);
+
+        });
 
 
         /* سرچ و دسته‌بندی */
@@ -476,10 +491,7 @@
                     category === selectedCategory;
 
 
-                if (
-                    matchesSearch &&
-                    matchesCategory
-                ) {
+                if (matchesSearch && matchesCategory) {
 
                     card.style.display = "block";
                     visibleCount++;
@@ -493,24 +505,19 @@
             });
 
 
-            if (visibleCount === 0) {
-                noResults.style.display = "block";
-            } else {
-                noResults.style.display = "none";
-            }
+            noResults.style.display =
+                visibleCount === 0
+                    ? "block"
+                    : "none";
 
         }
 
-
-        /* کار کردن سرچ */
 
         searchInput.addEventListener(
             "input",
             filterCards
         );
 
-
-        /* کار کردن دسته‌بندی‌ها */
 
         categoryButtons.forEach(button => {
 
@@ -533,7 +540,5 @@
 
     </script>
 
-
 </body>
 </html>
-```
