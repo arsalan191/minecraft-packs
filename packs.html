@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Minecraft Packs</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -16,7 +20,7 @@
             font-family: Tahoma, Arial, sans-serif;
         }
 
-        /* عکس ثابت بالای صفحه */
+        /* عکس بالای صفحه */
         .top-image {
             position: fixed;
             top: 0;
@@ -29,23 +33,82 @@
         }
 
         .content {
-            padding: 30px;
+            padding: 25px;
             text-align: center;
+            max-width: 1200px;
+            margin: auto;
         }
 
         h1 {
             color: #16a34a;
         }
 
-        /* کارت مپ Backrooms */
-        .map-link {
-            text-decoration: none;
-            color: inherit;
-            display: inline-block;
-            margin-top: 20px;
+        /* سرچ */
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            border: 2px solid #16a34a;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            margin: 20px auto;
+            display: block;
+            font-family: inherit;
         }
 
-        .map-card {
+        .search-box:focus {
+            box-shadow: 0 0 10px rgba(22, 163, 74, 0.3);
+        }
+
+        /* دسته‌بندی‌ها */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0 30px;
+        }
+
+        .category-btn {
+            border: none;
+            background: white;
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .category-btn:hover {
+            background: #16a34a;
+            color: white;
+        }
+
+        .category-btn.active {
+            background: #16a34a;
+            color: white;
+        }
+
+        /* لیست کارت‌ها */
+        .packs-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* لینک کارت */
+        .pack-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* کارت */
+        .pack-card {
             width: 280px;
             background: white;
             border: 1px solid #e0e0e0;
@@ -57,12 +120,12 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .map-card:hover {
+        .pack-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* فقط عکس‌های داخل کارت مپ */
+        /* اسلاید عکس */
         .map-slider {
             position: relative;
             width: 100%;
@@ -85,11 +148,11 @@
             opacity: 1;
         }
 
-        .map-info {
+        .pack-info {
             padding: 15px;
         }
 
-        .map-info h2 {
+        .pack-info h2 {
             font-size: 18px;
             margin: 0 0 10px;
             color: #222;
@@ -99,8 +162,7 @@
             font-size: 13px;
             color: #666;
             line-height: 1.8;
-            height: 45px;
-            overflow: hidden;
+            min-height: 45px;
         }
 
         .price {
@@ -110,7 +172,17 @@
             margin: 15px 0;
         }
 
-        .map-card button {
+        .type {
+            display: inline-block;
+            background: #e8f7ed;
+            color: #16a34a;
+            padding: 5px 10px;
+            border-radius: 7px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .pack-card button {
             width: 100%;
             border: none;
             padding: 10px;
@@ -121,12 +193,44 @@
             font-size: 14px;
             cursor: pointer;
         }
+
+        .no-results {
+            display: none;
+            color: #777;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding-top: 140px;
+            }
+
+            .top-image {
+                height: 140px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .pack-card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
+    <!-- عکس بالای سایت -->
     <img class="top-image" src="moz.jpg" alt="Minecraft Packs">
+
 
     <div class="content">
 
@@ -137,61 +241,316 @@
         </p>
 
         <p>
-            پک مورد نظر را انتخاب کنید.
+            مپ، ریسورس پک و بسته مورد نظر خود را پیدا کنید.
         </p>
 
-        <!-- مپ Backrooms -->
-        <a href="backrooms map.html" class="map-link">
-            <div class="map-card">
 
-                <!-- اسلاید عکس‌های مپ -->
-                <div class="map-slider">
-                    <img src="b1.webp" alt="مپ بکرومز 1" class="active">
-                    <img src="b2.webp" alt="مپ بکرومز 2">
-                    <img src="b3.webp" alt="مپ بکرومز 3">
-                    <img src="b4.webp" alt="مپ بکرومز 4">
-                </div>
+        <!-- سرچ -->
+        <input
+            type="text"
+            id="searchInput"
+            class="search-box"
+            placeholder="🔍 جستجو کنید..."
+        >
 
-                <div class="map-info">
-                    <h2>مپ ترسناک بکرومز</h2>
 
-                    <p class="description">
-                        وارد دنیای ترسناک و مرموز Backrooms شوید!
-                    </p>
+        <!-- دسته‌بندی -->
+        <div class="categories">
 
-                    <div class="price">
-                        ۱۰۰,۰۰۰ تومان
+            <button class="category-btn active" data-category="all">
+                همه
+            </button>
+
+            <button class="category-btn" data-category="map">
+                🗺️ مپ
+            </button>
+
+            <button class="category-btn" data-category="resource">
+                🎨 ریسورس پک
+            </button>
+
+            <button class="category-btn" data-category="pack">
+                📦 بسته
+            </button>
+
+        </div>
+
+
+        <!-- کارت‌ها -->
+        <div class="packs-container" id="packsContainer">
+
+
+            <!-- مپ Backrooms -->
+            <a
+                href="backrooms map.html"
+                class="pack-link"
+                data-category="map"
+                data-name="مپ ترسناک بکرومز backrooms horror"
+            >
+
+                <div class="pack-card">
+
+                    <div class="map-slider">
+
+                        <img src="b1.webp" alt="مپ بکرومز 1" class="active">
+
+                        <img src="b2.webp" alt="مپ بکرومز 2">
+
+                        <img src="b3.webp" alt="مپ بکرومز 3">
+
+                        <img src="b4.webp" alt="مپ بکرومز 4">
+
                     </div>
 
-                    <button type="button">
-                        مشاهده مپ
-                    </button>
+
+                    <div class="pack-info">
+
+                        <div class="type">
+                            🗺️ مپ
+                        </div>
+
+                        <h2>
+                            مپ ترسناک بکرومز
+                        </h2>
+
+                        <p class="description">
+                            وارد دنیای ترسناک و مرموز Backrooms شوید!
+                        </p>
+
+                        <div class="price">
+                            ۱۰۰,۰۰۰ تومان
+                        </div>
+
+                        <button type="button">
+                            مشاهده مپ
+                        </button>
+
+                    </div>
+
                 </div>
 
-            </div>
-        </a>
+            </a>
 
-        <div style="height:1000px;"></div>
+
+            <!-- نمونه ریسورس پک -->
+            <a
+                href="#"
+                class="pack-link"
+                data-category="resource"
+                data-name="ریسورس پک resource pack"
+            >
+
+                <div class="pack-card">
+
+                    <div class="map-slider">
+                        <img src="moz.jpg" alt="ریسورس پک" class="active">
+                    </div>
+
+                    <div class="pack-info">
+
+                        <div class="type">
+                            🎨 ریسورس پک
+                        </div>
+
+                        <h2>
+                            ریسورس پک
+                        </h2>
+
+                        <p class="description">
+                            به زودی اضافه می‌شود.
+                        </p>
+
+                        <button type="button">
+                            مشاهده
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- نمونه بسته -->
+            <a
+                href="#"
+                class="pack-link"
+                data-category="pack"
+                data-name="بسته پک minecraft"
+            >
+
+                <div class="pack-card">
+
+                    <div class="map-slider">
+                        <img src="moz.jpg" alt="بسته ماینکرفت" class="active">
+                    </div>
+
+                    <div class="pack-info">
+
+                        <div class="type">
+                            📦 بسته
+                        </div>
+
+                        <h2>
+                            بسته ماینکرفت
+                        </h2>
+
+                        <p class="description">
+                            به زودی اضافه می‌شود.
+                        </p>
+
+                        <button type="button">
+                            مشاهده
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+
+        <p id="noResults" class="no-results">
+            چیزی پیدا نشد 😕
+        </p>
+
 
     </div>
 
+
     <script>
+
+        /* اسلاید تصاویر بکرومز */
+
         const images = document.querySelectorAll(".map-slider img");
+
         let currentImage = 0;
 
         setInterval(() => {
-            images[currentImage].classList.remove("active");
 
-            currentImage++;
+            if (images.length > 1) {
 
-            if (currentImage >= images.length) {
-                currentImage = 0;
+                images[currentImage].classList.remove("active");
+
+                currentImage++;
+
+                if (currentImage >= images.length) {
+                    currentImage = 0;
+                }
+
+                images[currentImage].classList.add("active");
+
             }
 
-            images[currentImage].classList.add("active");
-
         }, 5000);
+
+
+
+        /* سرچ و دسته‌بندی */
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const cards =
+            document.querySelectorAll(".pack-link");
+
+        const categoryButtons =
+            document.querySelectorAll(".category-btn");
+
+        const noResults =
+            document.getElementById("noResults");
+
+
+        let selectedCategory = "all";
+
+
+        function filterCards() {
+
+            const searchText =
+                searchInput.value.toLowerCase().trim();
+
+            let visibleCount = 0;
+
+
+            cards.forEach(card => {
+
+                const category =
+                    card.dataset.category;
+
+                const name =
+                    card.dataset.name.toLowerCase();
+
+
+                const matchesSearch =
+                    name.includes(searchText);
+
+
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    category === selectedCategory;
+
+
+                if (matchesSearch && matchesCategory) {
+
+                    card.style.display = "block";
+
+                    visibleCount++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            if (visibleCount === 0) {
+
+                noResults.style.display = "block";
+
+            } else {
+
+                noResults.style.display = "none";
+
+            }
+
+        }
+
+
+        searchInput.addEventListener(
+            "input",
+            filterCards
+        );
+
+
+        categoryButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+
+                button.classList.add("active");
+
+
+                selectedCategory =
+                    button.dataset.category;
+
+
+                filterCards();
+
+            });
+
+        });
+
     </script>
+
 
 </body>
 </html>
