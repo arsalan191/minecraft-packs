@@ -115,7 +115,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* اسلایدر عکس‌ها */
         .map-slider {
             position: relative;
             width: 100%;
@@ -191,17 +190,24 @@
             margin-top: 30px;
         }
 
-        .reelz-channel {
+        /* باکس کانال‌ها */
+        .channels-box {
             position: fixed;
             bottom: 15px;
             right: 15px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .reelz-channel {
             background: #e6123d;
             color: white;
             padding: 12px 18px;
             border-radius: 12px;
             font-size: 14px;
             font-weight: bold;
-            z-index: 10000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             text-align: center;
             line-height: 1.8;
@@ -238,9 +244,12 @@
                 max-width: 350px;
             }
 
-            .reelz-channel {
+            .channels-box {
                 bottom: 10px;
                 right: 10px;
+            }
+
+            .reelz-channel {
                 font-size: 12px;
                 padding: 10px 14px;
             }
@@ -298,16 +307,13 @@
                 data-category="map"
                 data-name="مپ ترسناک بکرومز backrooms horror"
             >
-
                 <div class="pack-card">
 
                     <div class="map-slider">
-
                         <img src="b1.webp" alt="مپ بکرومز 1" class="active">
                         <img src="b2.webp" alt="مپ بکرومز 2">
                         <img src="b3.webp" alt="مپ بکرومز 3">
                         <img src="b4.webp" alt="مپ بکرومز 4">
-
                     </div>
 
                     <div class="pack-info">
@@ -331,9 +337,7 @@
                     </div>
 
                 </div>
-
             </a>
-
 
             <!-- ریسورس پک سروایوال -->
             <a
@@ -342,10 +346,8 @@
                 data-category="resource"
                 data-name="ریسورس پک سروایوال survival resource pack minecraft"
             >
-
                 <div class="pack-card">
 
-                    <!-- عکس‌ها هر ۵ ثانیه عوض می‌شوند -->
                     <div class="map-slider">
 
                         <img
@@ -386,7 +388,6 @@
                     </div>
 
                 </div>
-
             </a>
 
         </div>
@@ -398,18 +399,41 @@
     </div>
 
 
-    <div class="reelz-channel">
+    <!-- کانال‌ها پایین سمت راست -->
+    <div class="channels-box">
 
-        🎬 چنل Reelz
+        <!-- اول: روبیکا -->
+        <div class="reelz-channel">
 
-        <a
-            href="https://reelz.social/@minecraftpacks"
-            class="reelz-id"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            @minecraftpacks
-        </a>
+            📱 چنل روبیکا
+
+            <a
+                href="https://rubika.ir/minecraftpacks67"
+                class="reelz-id"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                @minecraftpacks67
+            </a>
+
+        </div>
+
+
+        <!-- دوم: Reelz -->
+        <div class="reelz-channel">
+
+            🎬 چنل Reelz
+
+            <a
+                href="https://reelz.social/@minecraftpacks"
+                class="reelz-id"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                @minecraftpacks
+            </a>
+
+        </div>
 
     </div>
 
@@ -421,7 +445,6 @@
         const sliders =
             document.querySelectorAll(".map-slider");
 
-
         sliders.forEach(slider => {
 
             const images =
@@ -430,7 +453,6 @@
             if (images.length <= 1) return;
 
             let currentImage = 0;
-
 
             setInterval(() => {
 
