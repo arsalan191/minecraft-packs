@@ -202,6 +202,28 @@
             margin-top: 30px;
         }
 
+        /* چنل Reelz پایین سمت راست */
+        .reelz-channel {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: #e6123d;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .reelz-id {
+            direction: ltr;
+            display: block;
+        }
+
         /* موبایل */
         @media (max-width: 600px) {
 
@@ -220,6 +242,13 @@
             .pack-card {
                 width: 100%;
                 max-width: 350px;
+            }
+
+            .reelz-channel {
+                bottom: 10px;
+                right: 10px;
+                font-size: 12px;
+                padding: 10px 14px;
             }
 
         }
@@ -281,7 +310,6 @@
         <!-- لیست کارت‌ها -->
         <div class="packs-container">
 
-
             <!-- مپ Backrooms -->
             <a
                 href="backrooms map.html"
@@ -292,8 +320,6 @@
 
                 <div class="pack-card">
 
-
-                    <!-- عکس‌های مپ -->
                     <div class="map-slider">
 
                         <img
@@ -320,7 +346,6 @@
                     </div>
 
 
-                    <!-- اطلاعات مپ -->
                     <div class="pack-info">
 
                         <div class="type">
@@ -349,7 +374,6 @@
 
             </a>
 
-
         </div>
 
 
@@ -358,61 +382,51 @@
             چیزی پیدا نشد 😕
         </p>
 
+    </div>
 
+
+    <!-- چنل Reelz -->
+    <div class="reelz-channel">
+        🎬 چنل Reelz
+        <span class="reelz-id">@minecraftpacks</span>
     </div>
 
 
     <script>
-
-        /* تغییر عکس‌های بکرومز هر ۵ ثانیه */
 
         const images =
             document.querySelectorAll(".map-slider img");
 
         let currentImage = 0;
 
-
         setInterval(() => {
 
             images[currentImage]
                 .classList.remove("active");
 
-
             currentImage++;
 
-
             if (currentImage >= images.length) {
-
                 currentImage = 0;
-
             }
-
 
             images[currentImage]
                 .classList.add("active");
 
-
         }, 5000);
 
-
-
-        /* سرچ و دسته‌بندی */
 
         const searchInput =
             document.getElementById("searchInput");
 
-
         const cards =
             document.querySelectorAll(".pack-link");
-
 
         const categoryButtons =
             document.querySelectorAll(".category-btn");
 
-
         const noResults =
             document.getElementById("noResults");
-
 
         let selectedCategory = "all";
 
@@ -422,7 +436,6 @@
             const searchText =
                 searchInput.value.toLowerCase().trim();
 
-
             let visibleCount = 0;
 
 
@@ -431,14 +444,11 @@
                 const category =
                     card.dataset.category;
 
-
                 const name =
                     card.dataset.name.toLowerCase();
 
-
                 const matchesSearch =
                     name.includes(searchText);
-
 
                 const matchesCategory =
                     selectedCategory === "all" ||
@@ -451,7 +461,6 @@
                 ) {
 
                     card.style.display = "block";
-
                     visibleCount++;
 
                 } else {
@@ -476,42 +485,30 @@
         }
 
 
-        /* کار کردن سرچ */
-
         searchInput.addEventListener(
             "input",
             filterCards
         );
 
 
-        /* کار کردن دسته‌بندی‌ها */
-
         categoryButtons.forEach(button => {
 
             button.addEventListener("click", () => {
 
-
                 categoryButtons.forEach(btn => {
-
                     btn.classList.remove("active");
-
                 });
 
-
                 button.classList.add("active");
-
 
                 selectedCategory =
                     button.dataset.category;
 
-
                 filterCards();
-
 
             });
 
         });
-
 
     </script>
 
