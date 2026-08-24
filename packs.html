@@ -190,15 +190,18 @@
             margin-top: 30px;
         }
 
-        /* کانال Reelz پایین سمت راست */
+        /* کانال‌ها پایین سمت راست */
         .channels-box {
             position: fixed;
             bottom: 15px;
             right: 15px;
             z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .reelz-channel {
+        .channel-box {
             background: #e6123d;
             color: white;
             padding: 12px 18px;
@@ -210,7 +213,7 @@
             line-height: 1.8;
         }
 
-        .reelz-id {
+        .channel-id {
             direction: ltr;
             display: block;
             color: white;
@@ -218,7 +221,7 @@
             font-weight: bold;
         }
 
-        .reelz-id:hover {
+        .channel-id:hover {
             text-decoration: underline;
         }
 
@@ -245,7 +248,7 @@
                 right: 10px;
             }
 
-            .reelz-channel {
+            .channel-box {
                 font-size: 12px;
                 padding: 10px 14px;
             }
@@ -263,7 +266,7 @@
 
         <p>به Minecraft Packs خوش آمدید!</p>
 
-        <p>مپ، ریسورس پک و بسته مورد نظر خود را پیدا کنید.</p>
+        <p>مپ، ریسورس پک، بسته و ماد مورد نظر خود را پیدا کنید.</p>
 
         <input
             type="text"
@@ -288,6 +291,10 @@
 
             <button class="category-btn" data-category="pack">
                 📦 بسته
+            </button>
+
+            <button class="category-btn" data-category="mod">
+                🧩 ماد
             </button>
 
         </div>
@@ -332,7 +339,6 @@
                 </div>
             </a>
 
-
             <!-- ریسورس پک سروایوال -->
             <a
                 href="survival resource pack.html"
@@ -368,7 +374,6 @@
                     </div>
                 </div>
             </a>
-
 
             <!-- ریسورس پک سروایو واقعی -->
             <a
@@ -414,17 +419,33 @@
 
     </div>
 
-
-    <!-- چنل Reelz پایین سمت راست -->
+    <!-- کانال‌ها پایین سمت راست -->
     <div class="channels-box">
 
-        <div class="reelz-channel">
+        <!-- روبیکا -->
+        <div class="channel-box">
+
+            📱 چنل روبیکا
+
+            <a
+                href="https://rubika.ir/minecraftpacks67"
+                class="channel-id"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                @minecraftpacks67
+            </a>
+
+        </div>
+
+        <!-- Reelz -->
+        <div class="channel-box">
 
             🎬 چنل Reelz
 
             <a
                 href="https://reelz.social/@minecraftpacks"
-                class="reelz-id"
+                class="channel-id"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -434,7 +455,6 @@
         </div>
 
     </div>
-
 
     <script>
 
@@ -465,7 +485,6 @@
 
         });
 
-
         /* سرچ و دسته‌بندی */
         const searchInput = document.getElementById("searchInput");
         const cards = document.querySelectorAll(".pack-link");
@@ -473,7 +492,6 @@
         const noResults = document.getElementById("noResults");
 
         let selectedCategory = "all";
-
 
         function filterCards() {
 
@@ -485,21 +503,13 @@
             cards.forEach(card => {
 
                 const category = card.dataset.category;
+                const name = card.dataset.name.toLowerCase();
 
-                const name =
-                    card.dataset.name.toLowerCase();
+                const matchesSearch = name.includes(searchText);
 
-                const matchesSearch =
-                    name.includes(searchText);
-
-                let matchesCategory = false;
-
-                if (selectedCategory === "all") {
-                    matchesCategory = true;
-                } else {
-                    matchesCategory =
-                        category === selectedCategory;
-                }
+                const matchesCategory =
+                    selectedCategory === "all" ||
+                    category === selectedCategory;
 
                 if (matchesSearch && matchesCategory) {
 
@@ -515,18 +525,11 @@
             });
 
             noResults.style.display =
-                visibleCount === 0
-                    ? "block"
-                    : "none";
+                visibleCount === 0 ? "block" : "none";
 
         }
 
-
-        searchInput.addEventListener(
-            "input",
-            filterCards
-        );
-
+        searchInput.addEventListener("input", filterCards);
 
         categoryButtons.forEach(button => {
 
@@ -538,8 +541,7 @@
 
                 button.classList.add("active");
 
-                selectedCategory =
-                    button.dataset.category;
+                selectedCategory = button.dataset.category;
 
                 filterCards();
 
