@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -137,6 +138,23 @@
             opacity: 1;
         }
 
+        /* ظاهر مخصوص مود گان */
+        .gun-image {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 75px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #1f2937,
+                    #374151,
+                    #111827
+                );
+        }
+
         .pack-info {
             padding: 15px;
         }
@@ -269,7 +287,7 @@
 
         <p>به Minecraft Packs خوش آمدید!</p>
 
-        <p>مپ، ریسورس پک و بسته مورد نظر خود را پیدا کنید.</p>
+        <p>مپ، ریسورس پک، بسته و مود مورد نظر خود را پیدا کنید.</p>
 
         <input
             type="text"
@@ -340,7 +358,7 @@
             </a>
 
 
-            <!-- ریسورس پک سروایوال قبلی -->
+            <!-- ریسورس پک سروایوال -->
             <a
                 href="survival resource pack.html"
                 class="pack-link"
@@ -392,7 +410,7 @@
             </a>
 
 
-            <!-- ریسورس پک سروایو واقعی جدید -->
+            <!-- ریسورس پک سروایو واقعی -->
             <a
                 href="survival resource pack 2.html"
                 class="pack-link"
@@ -443,6 +461,47 @@
                 </div>
             </a>
 
+
+            <!-- مود گان - فقط در دسته همه -->
+            <a
+                href="gun mod.html"
+                class="pack-link"
+                data-category="all-only"
+                data-name="مود گان gun mod تفنگ اسلحه minecraft"
+            >
+                <div class="pack-card">
+
+                    <div class="gun-image">
+                        🔫
+                    </div>
+
+                    <div class="pack-info">
+
+                        <div class="type">
+                            🔫 مود
+                        </div>
+
+                        <h2>
+                            مود گان
+                        </h2>
+
+                        <p class="description">
+                            با این مود، گان و سلاح‌های جدید به دنیای ماینکرفت اضافه می‌شوند!
+                        </p>
+
+                        <div class="price">
+                            به زودی
+                        </div>
+
+                        <button type="button">
+                            مشاهده مود
+                        </button>
+
+                    </div>
+
+                </div>
+            </a>
+
         </div>
 
         <p id="noResults" class="no-results">
@@ -455,7 +514,7 @@
     <!-- کانال‌ها پایین سمت راست -->
     <div class="channels-box">
 
-        <!-- اول: روبیکا -->
+        <!-- روبیکا -->
         <div class="reelz-channel">
 
             📱 چنل روبیکا
@@ -472,7 +531,7 @@
         </div>
 
 
-        <!-- دوم: Reelz -->
+        <!-- Reelz -->
         <div class="reelz-channel">
 
             🎬 چنل Reelz
@@ -493,7 +552,7 @@
 
     <script>
 
-        /* اسلایدر تمام کارت‌ها - هر ۵ ثانیه */
+        /* اسلایدر تمام کارت‌ها */
 
         const sliders =
             document.querySelectorAll(".map-slider");
@@ -562,9 +621,19 @@
                 const matchesSearch =
                     name.includes(searchText);
 
-                const matchesCategory =
-                    selectedCategory === "all" ||
-                    category === selectedCategory;
+                let matchesCategory = false;
+
+
+                if (selectedCategory === "all") {
+
+                    matchesCategory = true;
+
+                } else {
+
+                    matchesCategory =
+                        category === selectedCategory;
+
+                }
 
 
                 if (matchesSearch && matchesCategory) {
@@ -618,3 +687,4 @@
 
 </body>
 </html>
+```
