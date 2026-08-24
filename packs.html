@@ -9,7 +9,6 @@
     <title>Minecraft Packs</title>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -138,23 +137,6 @@
             opacity: 1;
         }
 
-        /* ظاهر مخصوص مود گان */
-        .gun-image {
-            width: 100%;
-            height: 180px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 75px;
-            background:
-                linear-gradient(
-                    135deg,
-                    #1f2937,
-                    #374151,
-                    #111827
-                );
-        }
-
         .pack-info {
             padding: 15px;
         }
@@ -208,7 +190,41 @@
             margin-top: 30px;
         }
 
-        /* باکس کانال‌ها */
+        /* بخش ادمین‌ها */
+        .admins-section {
+            max-width: 600px;
+            margin: 50px auto 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .admins-section h2 {
+            margin-top: 0;
+            color: #16a34a;
+            font-size: 24px;
+        }
+
+        .admins-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .admin-phone {
+            display: block;
+            padding: 15px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            color: #555;
+            direction: ltr;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        /* کانال‌ها پایین سمت راست */
         .channels-box {
             position: fixed;
             bottom: 15px;
@@ -244,7 +260,6 @@
         }
 
         @media (max-width: 600px) {
-
             body {
                 padding-top: 140px;
             }
@@ -271,9 +286,7 @@
                 font-size: 12px;
                 padding: 10px 14px;
             }
-
         }
-
     </style>
 </head>
 
@@ -287,7 +300,7 @@
 
         <p>به Minecraft Packs خوش آمدید!</p>
 
-        <p>مپ، ریسورس پک، بسته و مود مورد نظر خود را پیدا کنید.</p>
+        <p>مپ، ریسورس پک و بسته مورد نظر خود را پیدا کنید.</p>
 
         <input
             type="text"
@@ -353,10 +366,8 @@
                         </button>
 
                     </div>
-
                 </div>
             </a>
-
 
             <!-- ریسورس پک سروایوال -->
             <a
@@ -368,29 +379,15 @@
                 <div class="pack-card">
 
                     <div class="map-slider">
-
-                        <img
-                            src="survival.webp"
-                            alt="ریسورس پک سروایوال 1"
-                            class="active"
-                        >
-
-                        <img
-                            src="survival2.webp"
-                            alt="ریسورس پک سروایوال 2"
-                        >
-
+                        <img src="survival.webp" alt="ریسورس پک سروایوال 1" class="active">
+                        <img src="survival2.webp" alt="ریسورس پک سروایوال 2">
                     </div>
 
                     <div class="pack-info">
 
-                        <div class="type">
-                            🎨 ریسورس پک
-                        </div>
+                        <div class="type">🎨 ریسورس پک</div>
 
-                        <h2>
-                            ریسورس پک سروایوال
-                        </h2>
+                        <h2>ریسورس پک سروایوال</h2>
 
                         <p class="description">
                             یک ریسورس پک جذاب برای زیباتر و بهتر شدن دنیای سروایوال ماینکرفت!
@@ -405,10 +402,8 @@
                         </button>
 
                     </div>
-
                 </div>
             </a>
-
 
             <!-- ریسورس پک سروایو واقعی -->
             <a
@@ -420,29 +415,15 @@
                 <div class="pack-card">
 
                     <div class="map-slider">
-
-                        <img
-                            src="s1.webp"
-                            alt="ریسورس پک سروایو واقعی 1"
-                            class="active"
-                        >
-
-                        <img
-                            src="s2.webp"
-                            alt="ریسورس پک سروایو واقعی 2"
-                        >
-
+                        <img src="s1.webp" alt="ریسورس پک سروایو واقعی 1" class="active">
+                        <img src="s2.webp" alt="ریسورس پک سروایو واقعی 2">
                     </div>
 
                     <div class="pack-info">
 
-                        <div class="type">
-                            🎨 ریسورس پک
-                        </div>
+                        <div class="type">🎨 ریسورس پک</div>
 
-                        <h2>
-                            ریسورس پک سروایو واقعی
-                        </h2>
+                        <h2>ریسورس پک سروایو واقعی</h2>
 
                         <p class="description">
                             ظاهر سنتی و واقعی
@@ -457,48 +438,6 @@
                         </button>
 
                     </div>
-
-                </div>
-            </a>
-
-
-            <!-- مود گان - فقط در دسته همه -->
-            <a
-                href="gun mod.html"
-                class="pack-link"
-                data-category="all-only"
-                data-name="مود گان gun mod تفنگ اسلحه minecraft"
-            >
-                <div class="pack-card">
-
-                    <div class="gun-image">
-                        🔫
-                    </div>
-
-                    <div class="pack-info">
-
-                        <div class="type">
-                            🔫 مود
-                        </div>
-
-                        <h2>
-                            مود گان
-                        </h2>
-
-                        <p class="description">
-                            با این مود، گان و سلاح‌های جدید به دنیای ماینکرفت اضافه می‌شوند!
-                        </p>
-
-                        <div class="price">
-                            به زودی
-                        </div>
-
-                        <button type="button">
-                            مشاهده مود
-                        </button>
-
-                    </div>
-
                 </div>
             </a>
 
@@ -508,13 +447,34 @@
             چیزی پیدا نشد 😕
         </p>
 
+
+        <!-- بخش ادمین‌ها -->
+        <div class="admins-section">
+
+            <h2>👑 ادمین‌ها</h2>
+
+            <div class="admins-list">
+
+                <!-- شماره ادمین اول را خودت اینجا بنویس -->
+                <a href="#" class="admin-phone">
+                    09385221821
+                </a>
+
+                <!-- شماره ادمین دوم را خودت اینجا بنویس -->
+                <a href="#" class="admin-phone">
+                    09198283600
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
 
     <!-- کانال‌ها پایین سمت راست -->
     <div class="channels-box">
 
-        <!-- روبیکا -->
         <div class="reelz-channel">
 
             📱 چنل روبیکا
@@ -530,8 +490,6 @@
 
         </div>
 
-
-        <!-- Reelz -->
         <div class="reelz-channel">
 
             🎬 چنل Reelz
@@ -552,15 +510,12 @@
 
     <script>
 
-        /* اسلایدر تمام کارت‌ها */
-
-        const sliders =
-            document.querySelectorAll(".map-slider");
+        /* اسلایدر تصاویر */
+        const sliders = document.querySelectorAll(".map-slider");
 
         sliders.forEach(slider => {
 
-            const images =
-                slider.querySelectorAll("img");
+            const images = slider.querySelectorAll("img");
 
             if (images.length <= 1) return;
 
@@ -568,8 +523,7 @@
 
             setInterval(() => {
 
-                images[currentImage]
-                    .classList.remove("active");
+                images[currentImage].classList.remove("active");
 
                 currentImage++;
 
@@ -577,8 +531,7 @@
                     currentImage = 0;
                 }
 
-                images[currentImage]
-                    .classList.add("active");
+                images[currentImage].classList.add("active");
 
             }, 5000);
 
@@ -586,18 +539,10 @@
 
 
         /* سرچ و دسته‌بندی */
-
-        const searchInput =
-            document.getElementById("searchInput");
-
-        const cards =
-            document.querySelectorAll(".pack-link");
-
-        const categoryButtons =
-            document.querySelectorAll(".category-btn");
-
-        const noResults =
-            document.getElementById("noResults");
+        const searchInput = document.getElementById("searchInput");
+        const cards = document.querySelectorAll(".pack-link");
+        const categoryButtons = document.querySelectorAll(".category-btn");
+        const noResults = document.getElementById("noResults");
 
         let selectedCategory = "all";
 
@@ -609,11 +554,9 @@
 
             let visibleCount = 0;
 
-
             cards.forEach(card => {
 
-                const category =
-                    card.dataset.category;
+                const category = card.dataset.category;
 
                 const name =
                     card.dataset.name.toLowerCase();
@@ -623,18 +566,12 @@
 
                 let matchesCategory = false;
 
-
                 if (selectedCategory === "all") {
-
                     matchesCategory = true;
-
                 } else {
-
                     matchesCategory =
                         category === selectedCategory;
-
                 }
-
 
                 if (matchesSearch && matchesCategory) {
 
@@ -648,7 +585,6 @@
                 }
 
             });
-
 
             noResults.style.display =
                 visibleCount === 0
