@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Katana Mod | Minecraft Packs</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f5fff8;
+            font-family: Tahoma, Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            background: #16a34a;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 35px auto;
+        }
+
+        .map {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #ddd;
+        }
+
+        .map-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .map-slider img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .map-slider img.active {
+            opacity: 1;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        h2 {
+            color: #16a34a;
+            font-size: 30px;
+        }
+
+        .info {
+            background: #f0fff4;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .price {
+            color: #16a34a;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .download {
+            background: #16a34a;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 15px;
+            background: white;
+            color: #16a34a;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .download-button:hover {
+            background: #f0fff4;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #16a34a;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <header>
+
+        <h1>
+            🎮 Minecraft Packs
+        </h1>
+
+    </header>
+
+
+    <div class="container">
+
+        <div class="map">
+
+
+            <!-- عکس‌های ماد کاتانا: هر ۵ ثانیه تغییر می‌کنند -->
+
+            <div class="map-slider">
+
+                <img
+                    src="katana1.webp"
+                    alt="Katana Mod 1"
+                    class="active"
+                >
+
+                <img
+                    src="katana2.webp"
+                    alt="Katana Mod 2"
+                >
+
+            </div>
+
+
+            <!-- عنوان ماد -->
+
+            <h2>
+                🗡️ ماد کاتانا
+            </h2>
+
+
+            <!-- توضیحات -->
+
+            <p>
+
+                یک ماد جذاب برای Minecraft که چهار کاتانای
+                قدرتمند با عناصر مختلف به بازی اضافه می‌کند.
+
+            </p>
+
+
+            <!-- مشخصات -->
+
+            <div class="info">
+
+                <b>🎮 نسخه Minecraft:</b>
+
+                1.21.4
+
+                <br><br>
+
+                <b>📦 نوع:</b>
+
+                Mod
+
+                <br><br>
+
+                <b>🗡️ شامل:</b>
+
+                چهار کاتانا
+
+                <br><br>
+
+                <b>💧 کاتانا آب:</b>
+
+                قدرت آب
+
+                <br><br>
+
+                <b>🔥 کاتانا آتش:</b>
+
+                قدرت آتش
+
+                <br><br>
+
+                <b>💨 کاتانا باد:</b>
+
+                قدرت باد
+
+                <br><br>
+
+                <b>🌍 کاتانا زمین:</b>
+
+                قدرت زمین
+
+            </div>
+
+
+            <!-- قیمت -->
+
+            <p class="price">
+
+                💰 قیمت: رایگان
+
+            </p>
+
+
+            <!-- دانلود -->
+
+            <div class="download">
+
+                📥 دانلود ماد کاتانا
+
+                <br>
+
+                <span>
+                    برای دریافت ماد روی دکمه زیر کلیک کنید.
+                </span>
+
+                <br>
+
+                <a
+                    class="download-button"
+                    href="ElementalSwords-forge-1.21.4-2.8.0.jar"
+                    download
+                >
+
+                    📥 دانلود ماد
+
+                </a>
+
+            </div>
+
+
+            <!-- برگشت -->
+
+            <a
+                class="back"
+                href="packs.html"
+            >
+
+                ⬅️ برگشت به Minecraft Packs
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* اسلایدر عکس‌ها - هر ۵ ثانیه */
+
+        const mapImages =
+            document.querySelectorAll(".map-slider img");
+
+        let currentImage = 0;
+
+
+        setInterval(() => {
+
+            mapImages[currentImage]
+                .classList.remove("active");
+
+            currentImage =
+                (currentImage + 1) % mapImages.length;
+
+            mapImages[currentImage]
+                .classList.add("active");
+
+        }, 5000);
+
+    </script>
+
+
+</body>
+
+</html>
